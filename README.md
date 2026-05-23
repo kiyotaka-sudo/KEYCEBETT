@@ -6,6 +6,7 @@
 
 ## 🛠️ Stack Technique
 
+### Backend
 | Technologie | Version |
 |---|---|
 | Java | 17 |
@@ -18,6 +19,19 @@
 | Flyway | Migrations SQL |
 | Lombok + MapStruct | Génération de code |
 | OpenAPI/Swagger UI | Documentation API |
+
+### Frontend
+| Technologie | Version |
+|---|---|
+| React | 18.2 |
+| Vite | 5.2 |
+| TypeScript | 5.2 |
+| Tailwind CSS | 3.4 (Thème Sombre / Clair) |
+| Zustand | 4.5 (State management global) |
+| React Query | 5.28 (Cache et requêtes API) |
+| i18next | Multilinguisme (FR / EN) |
+| MSW | Mock Service Worker (API factice) |
+| Framer Motion | Animations fluides |
 
 ---
 
@@ -56,6 +70,24 @@ docker-compose up -d postgres redis
 # Lancer le backend en mode dev
 cd backend
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
+```
+
+### 💻 Lancer le Frontend (React)
+
+Le frontend peut tourner avec le backend réel, **ou de façon totalement autonome avec de fausses données (Mock API)** grâce à MSW, très utile si le backend est hors ligne.
+
+```bash
+cd frontend
+
+# Installer les dépendances
+npm install --legacy-peer-deps
+
+# Configurer l'environnement :
+# Mets VITE_USE_MOCK=true dans frontend/.env si tu veux utiliser de fausses données
+# Mets VITE_USE_MOCK=false pour te connecter au vrai backend sur localhost:8080
+
+# Lancer le serveur de développement (sur le port 5173 par défaut)
+npm run dev
 ```
 
 ---
@@ -108,6 +140,24 @@ backend/
         ├── application-dev.yml
         ├── application-prod.yml
         └── db/migration/    (V1 → V6 Flyway)
+
+frontend/
+├── package.json
+├── vite.config.ts       (Configuration Vite et Host local)
+├── postcss.config.js    (Compilateur Tailwind)
+├── tailwind.config.ts   (Design System, Couleurs, Animations)
+└── src/
+    ├── assets/          (Images, SVG)
+    ├── components/      (Composants UI réutilisables, Auth, Layouts)
+    ├── config/          (Configuration Axios, React Query, i18n)
+    ├── hooks/           (Hooks métiers : useBets, useSports, useWebSocket)
+    ├── locales/         (Traductions : fr.json, en.json)
+    ├── mocks/           (MSW : handlers API factice et mockData)
+    ├── pages/           (Vues principales : HomePage, DashboardAdmin, Casino)
+    ├── services/        (Appels API via Axios)
+    ├── store/           (Zustand : authStore, uiStore, betSlipStore)
+    ├── styles/          (index.css avec Variables CSS Thème Sombre/Clair)
+    └── types/           (Interfaces TypeScript globales)
 ```
 
 ---
