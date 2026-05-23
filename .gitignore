@@ -1,0 +1,125 @@
+# ═══════════════════════════════════════════
+#   KEYCEBET — .gitignore
+# ═══════════════════════════════════════════
+
+# ─── FICHIERS SENSIBLES (NE JAMAIS COMMITER) ───
+.env
+backend/.env
+frontend/.env
+*.env.local
+*.env.production
+.env.*.local
+
+# ─── BACKEND — Java / Maven / Spring Boot ───
+backend/target/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/.mvn/
+!backend/.mvn/wrapper/maven-wrapper.properties
+
+# Fichiers IDE Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+replay_pid*
+
+# Maven
+backend/pom.xml.tag
+backend/pom.xml.releaseBackup
+backend/pom.xml.versionsBackup
+backend/pom.xml.next
+backend/release.properties
+backend/dependency-reduced-pom.xml
+
+# Logs Spring Boot
+backend/logs/
+backend/*.log
+backend/log/
+
+# ─── FRONTEND — Node / React / Vite ───
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.vite/
+frontend/.cache/
+
+# Fichiers de lock (garder UN seul selon ton package manager)
+# Si tu utilises npm  → garder package-lock.json, ignorer yarn.lock
+# Si tu utilises yarn → garder yarn.lock, ignorer package-lock.json
+frontend/yarn.lock
+# frontend/package-lock.json   ← décommenter si tu utilises yarn
+
+# Coverage tests frontend
+frontend/coverage/
+
+# ─── DOCKER ───
+# Volumes Docker locaux (ne pas commiter les données DB)
+postgres_data/
+redis_data/
+docker/data/
+
+# Fichier docker-compose avec secrets (si tu en fais un séparé)
+docker-compose.prod.yml
+docker-compose.override.yml
+
+# ─── ÉDITEURS / IDEs ───
+# IntelliJ IDEA / Antigravity
+.idea/
+*.iml
+*.iws
+*.ipr
+.idea_modules/
+out/
+
+# VSCode
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+
+# Eclipse
+.eclipse/
+.settings/
+.project
+.classpath
+
+# MacOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encdata
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+
+# ─── DIVERS ───
+*.tmp
+*.temp
+*.swp
+*.swo
+*.bak
+*.orig
+*.pid
+
+# Clés et certificats
+*.pem
+*.key
+*.p12
+*.jks
+*.keystore
+*.cert
+*.crt
+
+# Fichiers de test locaux
+*.http.private
+test-results/

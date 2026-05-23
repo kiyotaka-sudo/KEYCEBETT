@@ -1,0 +1,81 @@
+/* ── Keyframes globaux KeyceBet ──────────────────────────────────────── */
+
+@keyframes pulseGreen {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(0, 229, 160, 0.4);
+  }
+  50% {
+    opacity: 0.75;
+    box-shadow: 0 0 0 8px rgba(0, 229, 160, 0);
+  }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideFromBottom {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+
+@keyframes bounceTap {
+  0%   { transform: scale(1); }
+  40%  { transform: scale(0.94); }
+  80%  { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.4); opacity: 0.7; }
+}
+
+@keyframes livePulse {
+  0%, 100% { background-color: #FF4D6A; box-shadow: 0 0 0 0 rgba(255, 77, 106, 0.5); }
+  50%       { background-color: #FF6B7F; box-shadow: 0 0 0 6px rgba(255, 77, 106, 0); }
+}
+
+/* ── Classes d'animation utilitaires ─────────────────────────────────── */
+.animate-slide-up       { animation: slideUp 0.35s ease-out both; }
+.animate-slide-down     { animation: slideDown 0.3s ease-out both; }
+.animate-fade-in        { animation: fadeIn 0.25s ease-out both; }
+.animate-scale-in       { animation: scaleIn 0.3s ease-out both; }
+.animate-slide-bottom   { animation: slideFromBottom 0.4s cubic-bezier(0.32, 0.72, 0, 1) both; }
+.animate-bounce-tap     { animation: bounceTap 0.3s ease-out; }
+.animate-count-up       { animation: countUp 0.4s ease-out both; }
+.animate-pulse-dot      { animation: pulseDot 1.5s ease-in-out infinite; }
+.animate-live-pulse     { animation: livePulse 1.5s ease-in-out infinite; }
+.animate-float          { animation: float 3s ease-in-out infinite; }

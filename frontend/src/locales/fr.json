@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "sport": "Sport",
+    "live": "Live",
+    "casino": "Casino",
+    "results": "Résultats",
+    "balance": "Solde",
+    "deposit": "Dépôt",
+    "login": "Connexion",
+    "register": "S'inscrire"
+  },
+  "home": {
+    "title": "Paris Sportifs",
+    "all": "Tous",
+    "filters": {
+      "all": "Tout",
+      "today": "Aujourd'hui",
+      "tomorrow": "Demain",
+      "week": "Cette semaine"
+    },
+    "noMatch": "Aucun match disponible",
+    "noMatchDesc": "Il n'y a pas d'événements pour le moment avec ces filtres."
+  },
+  "event": {
+    "moreMarkets": "+ de marchés"
+  },
+  "footer": {
+    "responsibleGaming": "Jeu responsable · +21 ans uniquement",
+    "warning": "KeyceBet est une plateforme de divertissement. Les jeux d'argent comportent des risques : endettement, dépendance, isolement. Appelez le numéro vert si vous avez besoin d'aide.",
+    "copyright": "© {{year}} KeyceBet CM. Tous droits réservés. Agréé par le Ministère des Finances du Cameroun."
+  }
+}

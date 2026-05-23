@@ -1,0 +1,25 @@
+spring:
+  jpa:
+    show-sql: false
+
+logging:
+  level:
+    root: WARN
+    cm.keycebet: INFO
+    org.springframework.security: WARN
+
+springdoc:
+  swagger-ui:
+    enabled: false
+  api-docs:
+    enabled: false
+
+server:
+  ssl:
+    enabled: false  # Activer avec certificat en production
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health

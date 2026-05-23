@@ -1,0 +1,32 @@
+{
+  "nav": {
+    "sport": "Sport",
+    "live": "Live",
+    "casino": "Casino",
+    "results": "Results",
+    "balance": "Balance",
+    "deposit": "Deposit",
+    "login": "Login",
+    "register": "Sign Up"
+  },
+  "home": {
+    "title": "Sports Betting",
+    "all": "All",
+    "filters": {
+      "all": "All",
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "week": "This week"
+    },
+    "noMatch": "No matches available",
+    "noMatchDesc": "There are no events currently available with these filters."
+  },
+  "event": {
+    "moreMarkets": "+ more markets"
+  },
+  "footer": {
+    "responsibleGaming": "Responsible Gaming · 21+ only",
+    "warning": "KeyceBet is an entertainment platform. Gambling involves risks: debt, dependence, isolation. Call the toll-free number if you need help.",
+    "copyright": "© {{year}} KeyceBet CM. All rights reserved. Licensed by the Ministry of Finance of Cameroon."
+  }
+}

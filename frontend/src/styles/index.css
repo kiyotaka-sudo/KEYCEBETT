@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Variables CSS globales ───────────────────────────────────────────── */
+:root {
+  /* LIGHT THEME */
+  --primary:      #F5A623;
+  --primary-dark: #D4891A;
+  --secondary:    #F3F4F6; /* Gris très clair */
+  --surface:      #FFFFFF; /* Blanc pur */
+  --surface-2:    #E5E7EB; /* Gris clair pour inputs */
+  --accent:       #00C48C; /* Vert lisible sur blanc */
+  --danger:       #E63946; /* Rouge */
+  --text-primary: #111827; /* Texte très sombre */
+  --text-muted:   #6B7280; /* Texte gris moyen */
+  --radius-card:  12px;
+}
+
+.dark {
+  /* DARK THEME */
+  --primary:      #F5A623;
+  --primary-dark: #D4891A;
+  --secondary:    #1A1D2E;
+  --surface:      #242738;
+  --surface-2:    #2E3148;
+  --accent:       #00E5A0;
+  --danger:       #FF4D6A;
+  --text-primary: #FFFFFF;
+  --text-muted:   #8B8FA8;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--secondary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  min-height: 100dvh;
+  overflow-x: hidden;
+}
+
+/* ── Scrollbar custom ─────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* ── Scrollbar horizontal masquée (pour les tabs) ──────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Glassmorphism ─────────────────────────────────────────────────────── */
+.glass {
+  background: rgba(36, 39, 56, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(46, 49, 72, 0.6);
+}
+
+.glass-dark {
+  background: rgba(26, 29, 46, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(46, 49, 72, 0.5);
+}
+
+/* ── Gradient texte KeyceBet ─────────────────────────────────────────── */
+.text-gradient {
+  background: linear-gradient(135deg, #F5A623, #FF8C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Card KeyceBet ────────────────────────────────────────────────────── */
+.kb-card {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  border: 1px solid var(--surface-2);
+  box-shadow: 0 4px 24px rgba(245, 166, 35, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.kb-card:hover {
+  box-shadow: 0 8px 32px rgba(245, 166, 35, 0.12);
+}
+
+/* ── Bouton primary ────────────────────────────────────────────────────── */
+.btn-primary {
+  @apply bg-primary text-secondary font-title font-semibold rounded-pill
+         px-6 py-3 transition-all duration-200 active:scale-95;
+}
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  box-shadow: 0 4px 16px rgba(245, 166, 35, 0.35);
+}
+
+/* ── Input sombre ─────────────────────────────────────────────────────── */
+.kb-input {
+  @apply w-full bg-surface-2 border border-surface-2 rounded-card
+         px-4 py-3 text-white placeholder-text-muted
+         focus:outline-none focus:border-primary transition-colors duration-200;
+}
+
+/* ── Skeleton shimmer ─────────────────────────────────────────────────── */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface) 25%,
+    var(--surface-2) 50%,
+    var(--surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s linear infinite;
+}
+
+/* ── Live badge ───────────────────────────────────────────────────────── */
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulseGreen 2s ease-in-out infinite;
+}
+
+/* ── Formatage XAF ────────────────────────────────────────────────────── */
+.amount-xaf {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* ── Bottom nav spacing ───────────────────────────────────────────────── */
+.pb-nav {
+  padding-bottom: calc(64px + env(safe-area-inset-bottom));
+}
+
+/* ── Safe area ───────────────────────────────────────────────────────── */
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ── Transitions de page ──────────────────────────────────────────────── */
+.page-enter {
+  animation: slideUp 0.35s ease-out both;
+}
+
+/* ── Cote sélectionnée ────────────────────────────────────────────────── */
+.odd-selected {
+  background: var(--primary) !important;
+  color: var(--secondary) !important;
+  border-color: var(--primary) !important;
+  box-shadow: 0 0 12px rgba(245, 166, 35, 0.4);
+}
+
+/* ── Bordure live gauche ──────────────────────────────────────────────── */
+.live-border {
+  border-left: 3px solid var(--accent);
+  animation: pulseGreen 2s ease-in-out infinite;
+}
