@@ -13,7 +13,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: none
     show-sql: false
     properties:
       hibernate:
@@ -89,3 +89,11 @@ springdoc:
     path: /swagger-ui.html
     operationsSorter: method
     tagsSorter: alpha
+
+# ─── MonetBil Payment Gateway ─────────────────────────────────────────────────
+monetbil:
+  service-key: ${MONETBIL_SERVICE_KEY:IM56s72MfFSgLmPX810dx11QMVJy9VAA}
+  service-secret: ${MONETBIL_SERVICE_SECRET:3px2fJ1XlydKjL8HtckiAIwWrVI0dyWUZIR4LZawhXhHWcecQClUejq6MHvDnhv0}
+  api-url: https://api.monetbil.com/payment/v1
+  notify-url: ${APP_BASE_URL:http://localhost:8080}/api/wallet/webhook/monetbil
+  timeout-seconds: 30

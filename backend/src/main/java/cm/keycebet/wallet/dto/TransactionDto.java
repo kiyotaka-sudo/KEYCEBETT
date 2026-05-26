@@ -1,4 +1,4 @@
-﻿package cm.keycebet.wallet.dto;
+package cm.keycebet.wallet.dto;
 
 import cm.keycebet.common.enums.TransactionStatus;
 import cm.keycebet.common.enums.TransactionType;
@@ -12,11 +12,13 @@ import java.util.UUID;
 @Data
 @Builder
 public class TransactionDto {
-    private UUID id;
-    private TransactionType type;
-    private BigDecimal amount;
+    private UUID              id;
+    private TransactionType   type;
+    private BigDecimal        amount;
     private TransactionStatus status;
-    private String reference;
-    private String provider;
-    private LocalDateTime createdAt;
+    private String            reference;
+    private String            provider;
+    /** ID MonetBil — utilisé par le frontend pour le polling via /check-payment */
+    private String            paymentId;
+    private LocalDateTime     createdAt;
 }

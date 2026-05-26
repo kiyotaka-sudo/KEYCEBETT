@@ -1,4 +1,4 @@
-﻿package cm.keycebet.config;
+package cm.keycebet.config;
 
 import cm.keycebet.auth.security.JwtAuthFilter;
 import lombok.RequiredArgsConstructor;
@@ -46,7 +46,11 @@ public class SecurityConfig {
             "/swagger-ui/**",
             "/swagger-ui.html",
             "/actuator/health",
-            "/ws/**"
+            "/ws/**",
+            // Webhook MonetBil — appelé par les serveurs MonetBil sans JWT
+            "/wallet/webhook/**",
+            // Polling de statut de paiement — accessible sans auth pour le frontend en dev
+            "/wallet/check-payment/**"
     };
 
     @Bean

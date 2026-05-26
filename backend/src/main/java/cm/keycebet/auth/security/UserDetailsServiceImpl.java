@@ -1,4 +1,4 @@
-﻿package cm.keycebet.auth.security;
+package cm.keycebet.auth.security;
 
 import cm.keycebet.user.entity.User;
 import cm.keycebet.user.repository.UserRepository;

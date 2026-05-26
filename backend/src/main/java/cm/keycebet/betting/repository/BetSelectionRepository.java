@@ -1,4 +1,4 @@
-﻿package cm.keycebet.betting.repository;
+package cm.keycebet.betting.repository;
 
 import cm.keycebet.betting.entity.BetSelection;
 import org.springframework.data.jpa.repository.JpaRepository;

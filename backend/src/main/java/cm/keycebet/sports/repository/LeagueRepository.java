@@ -1,4 +1,4 @@
-﻿package cm.keycebet.sports.repository;
+package cm.keycebet.sports.repository;
 
 import cm.keycebet.sports.entity.League;
 import org.springframework.data.jpa.repository.JpaRepository;

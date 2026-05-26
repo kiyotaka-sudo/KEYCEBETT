@@ -1,4 +1,4 @@
-﻿package cm.keycebet.dashboard.dto;
+package cm.keycebet.dashboard.dto;
 
 import lombok.Builder;
 import lombok.Data;

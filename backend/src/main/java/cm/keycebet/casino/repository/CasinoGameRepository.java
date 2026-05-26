@@ -1,4 +1,4 @@
-﻿package cm.keycebet.casino.repository;
+package cm.keycebet.casino.repository;
 
 import cm.keycebet.casino.entity.CasinoGame;
 import org.springframework.data.jpa.repository.JpaRepository;

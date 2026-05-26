@@ -1,4 +1,4 @@
-﻿package cm.keycebet.odds.entity;
+package cm.keycebet.odds.entity;
 
 import cm.keycebet.sports.entity.Event;
 import jakarta.persistence.*;

@@ -17,32 +17,28 @@ export const useTransactions = (page = 0, size = 20) => {
   })
 }
 
-export const useDeposit = () => {
+/** Invalide le cache wallet pour forcer un refetch du solde */
+export const useInvalidateWallet = () => {
   const queryClient = useQueryClient()
+  return () => queryClient.invalidateQueries({ queryKey: ['wallet'] })
+}
 
+export const useDeposit = () => {
+  // NE PAS invalider ici — on attend la confirmation webhook via polling
   return useMutation({
     mutationFn: (request: DepositRequest) => walletService.deposit(request),
-    onSuccess: () => {
-      toast.success('Demande de dépôt initiée')
-      queryClient.invalidateQueries({ queryKey: ['wallet'] })
-    },
     onError: (error: any) => {
-      toast.error(error.message || 'Erreur lors du dépôt')
+      toast.error(error?.response?.data?.message || 'Erreur lors du depot')
     },
   })
 }
 
 export const useWithdraw = () => {
-  const queryClient = useQueryClient()
-
+  // NE PAS invalider ici — on attend la confirmation webhook via polling
   return useMutation({
     mutationFn: (request: WithdrawRequest) => walletService.withdraw(request),
-    onSuccess: () => {
-      toast.success('Demande de retrait initiée')
-      queryClient.invalidateQueries({ queryKey: ['wallet'] })
-    },
     onError: (error: any) => {
-      toast.error(error.message || 'Erreur lors du retrait')
+      toast.error(error?.response?.data?.message || 'Erreur lors du retrait')
     },
   })
 }

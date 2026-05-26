@@ -1,10 +1,12 @@
-﻿package cm.keycebet.sports.entity;
+package cm.keycebet.sports.entity;
 
 import cm.keycebet.common.enums.EventStatus;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDateTime;
 
@@ -31,7 +33,8 @@ public class Event {
     private LocalDateTime startTime;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(nullable = false, columnDefinition = "event_status")
     @Builder.Default
     private EventStatus status = EventStatus.UPCOMING;
 

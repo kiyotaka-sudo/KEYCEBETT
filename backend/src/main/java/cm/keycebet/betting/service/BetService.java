@@ -1,4 +1,4 @@
-﻿package cm.keycebet.betting.service;
+package cm.keycebet.betting.service;
 
 import cm.keycebet.betting.dto.BetDto;
 import cm.keycebet.betting.dto.BetMapper;

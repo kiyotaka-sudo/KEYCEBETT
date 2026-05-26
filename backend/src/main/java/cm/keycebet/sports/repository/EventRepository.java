@@ -1,4 +1,4 @@
-﻿package cm.keycebet.sports.repository;
+package cm.keycebet.sports.repository;
 
 import cm.keycebet.common.enums.EventStatus;
 import cm.keycebet.sports.entity.Event;

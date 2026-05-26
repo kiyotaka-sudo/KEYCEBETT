@@ -1,4 +1,4 @@
-﻿package cm.keycebet.odds.repository;
+package cm.keycebet.odds.repository;
 
 import cm.keycebet.odds.entity.Odd;
 import org.springframework.data.jpa.repository.JpaRepository;

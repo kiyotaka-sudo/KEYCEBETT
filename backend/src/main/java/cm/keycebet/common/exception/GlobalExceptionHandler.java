@@ -1,4 +1,4 @@
-﻿package cm.keycebet.common.exception;
+package cm.keycebet.common.exception;
 
 import cm.keycebet.common.response.ApiResponse;
 import jakarta.validation.ConstraintViolationException;
@@ -39,6 +39,16 @@ public class GlobalExceptionHandler {
         log.warn("Bet not allowed: {}", ex.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(ApiResponse.error(ex.getMessage()));
+    }
+
+    @ExceptionHandler(cm.keycebet.wallet.payment.MonetBilException.class)
+    public ResponseEntity<ApiResponse<Void>> handleMonetBilException(
+            cm.keycebet.wallet.payment.MonetBilException ex) {
+        log.error("Erreur de communication MonetBil: {}", ex.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY)
+                .body(ApiResponse.error(
+                    "Erreur de communication avec le service de paiement MonetBil. " +
+                    "Veuillez réessayer dans quelques instants."));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

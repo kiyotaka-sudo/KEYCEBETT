@@ -1,9 +1,11 @@
-﻿package cm.keycebet.betting.entity;
+package cm.keycebet.betting.entity;
 
 import cm.keycebet.common.enums.BetStatus;
 import cm.keycebet.odds.entity.Odd;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 
@@ -28,7 +30,8 @@ public class BetSelection {
     private BigDecimal oddValueAtBetTime;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(nullable = false, columnDefinition = "selection_status")
     @Builder.Default
     private BetStatus status = BetStatus.PENDING;
 }

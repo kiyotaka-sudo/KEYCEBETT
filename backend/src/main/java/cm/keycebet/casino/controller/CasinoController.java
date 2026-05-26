@@ -1,4 +1,4 @@
-﻿package cm.keycebet.casino.controller;
+package cm.keycebet.casino.controller;
 
 import cm.keycebet.casino.dto.CasinoGameDto;
 import cm.keycebet.casino.service.CasinoService;

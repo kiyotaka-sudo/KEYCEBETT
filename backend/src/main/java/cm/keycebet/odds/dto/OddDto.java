@@ -1,4 +1,4 @@
-﻿package cm.keycebet.odds.dto;
+package cm.keycebet.odds.dto;
 
 import lombok.Builder;
 import lombok.Data;

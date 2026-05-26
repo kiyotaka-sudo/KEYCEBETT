@@ -1,4 +1,4 @@
-﻿package cm.keycebet.sports.controller;
+package cm.keycebet.sports.controller;
 
 import cm.keycebet.common.enums.EventStatus;
 import cm.keycebet.common.response.ApiResponse;

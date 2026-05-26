@@ -1,4 +1,4 @@
-﻿package cm.keycebet.betting.dto;
+package cm.keycebet.betting.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;

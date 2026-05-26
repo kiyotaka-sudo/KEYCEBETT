@@ -1,4 +1,4 @@
-﻿package cm.keycebet.notification.websocket;
+package cm.keycebet.notification.websocket;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.handler.annotation.MessageMapping;

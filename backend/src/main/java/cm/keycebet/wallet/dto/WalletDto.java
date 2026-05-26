@@ -1,4 +1,4 @@
-﻿package cm.keycebet.wallet.dto;
+package cm.keycebet.wallet.dto;
 
 import lombok.Builder;
 import lombok.Data;

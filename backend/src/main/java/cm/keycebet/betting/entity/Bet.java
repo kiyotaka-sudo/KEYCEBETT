@@ -1,10 +1,12 @@
-﻿package cm.keycebet.betting.entity;
+package cm.keycebet.betting.entity;
 
 import cm.keycebet.common.enums.BetStatus;
 import cm.keycebet.common.enums.BetType;
 import cm.keycebet.user.entity.User;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -26,7 +28,8 @@ public class Bet {
     private User user;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(nullable = false, columnDefinition = "bet_type")
     private BetType type;
 
     @Column(name = "total_stake", nullable = false, precision = 15, scale = 2)
@@ -39,7 +42,8 @@ public class Bet {
     private BigDecimal potentialWin;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(nullable = false, columnDefinition = "bet_status")
     @Builder.Default
     private BetStatus status = BetStatus.PENDING;
 

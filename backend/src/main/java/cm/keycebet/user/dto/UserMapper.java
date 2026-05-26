@@ -1,11 +1,24 @@
-﻿package cm.keycebet.user.dto;
+package cm.keycebet.user.dto;
 
 import cm.keycebet.user.entity.User;
-import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
+import org.springframework.stereotype.Component;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface UserMapper {
+@Component
+public class UserMapper {
 
-    UserDto toDto(User user);
+    public UserDto toDto(User user) {
+        if (user == null) return null;
+        return UserDto.builder()
+                .id(user.getId())
+                .username(user.getUsername())
+                .email(user.getEmail())
+                .phone(user.getPhone())
+                .balance(user.getBalance())
+                .role(user.getRole())
+                .kycVerified(user.isKycVerified())
+                .isActive(user.isActive())
+                .createdAt(user.getCreatedAt())
+                .updatedAt(user.getUpdatedAt())
+                .build();
+    }
 }

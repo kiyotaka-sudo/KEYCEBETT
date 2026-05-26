@@ -1,4 +1,4 @@
-﻿package cm.keycebet.betting.repository;
+package cm.keycebet.betting.repository;
 
 import cm.keycebet.betting.entity.Bet;
 import cm.keycebet.common.enums.BetStatus;

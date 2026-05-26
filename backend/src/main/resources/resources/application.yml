@@ -1,0 +1,99 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/keycebet}
+    username: ${DB_USERNAME:keycebet}
+    password: ${DB_PASSWORD:keycebet_secret}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    validate-on-migrate: true
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2000ms
+      repositories:
+        enabled: false
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    deserialization:
+      fail-on-unknown-properties: false
+    default-property-inclusion: non_null
+
+  web:
+    resources:
+      add-mappings: false
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+  error:
+    include-message: always
+    include-binding-errors: always
+
+jwt:
+  secret: ${JWT_SECRET:default_dev_secret_change_in_production_at_least_256_bits}
+  expiration: ${JWT_EXPIRATION:86400000}
+  refresh-expiration: ${JWT_REFRESH_EXPIRATION:604800000}
+
+app:
+  currency: XAF
+  min-bet: 100
+  max-bet: 500000
+  max-win: 10000000
+  max-selections: 15
+  admin:
+    email: ${ADMIN_EMAIL:mbargaernest80@gmail.com}
+    password: ${ADMIN_PASSWORD:Nash_2006}
+    username: ${ADMIN_USERNAME:admin}
+    phone: ${ADMIN_PHONE:+237699000000}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when_authorized
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
+    tagsSorter: alpha
+
+# ─── MonetBil Payment Gateway ─────────────────────────────────────────────────
+monetbil:
+  service-key: ${MONETBIL_SERVICE_KEY:IM56s72MfFSgLmPX810dx11QMVJy9VAA}
+  service-secret: ${MONETBIL_SERVICE_SECRET:3px2fJ1XlydKjL8HtckiAIwWrVI0dyWUZIR4LZawhXhHWcecQClUejq6MHvDnhv0}
+  api-url: https://api.monetbil.com/payment/v1
+  notify-url: ${APP_BASE_URL:http://localhost:8080}/api/wallet/webhook/monetbil
+  timeout-seconds: 30

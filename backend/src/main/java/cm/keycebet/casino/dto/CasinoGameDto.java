@@ -1,4 +1,4 @@
-﻿package cm.keycebet.casino.dto;
+package cm.keycebet.casino.dto;
 
 import cm.keycebet.common.enums.GameStatus;
 import lombok.Builder;

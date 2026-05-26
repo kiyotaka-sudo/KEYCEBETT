@@ -1,8 +1,10 @@
-﻿package cm.keycebet.casino.entity;
+package cm.keycebet.casino.entity;
 
 import cm.keycebet.common.enums.GameStatus;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
 
 @Entity
 @Table(name = "casino_games")
@@ -20,7 +22,8 @@ public class CasinoGame {
     private String provider;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, length = 20)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(nullable = false, columnDefinition = "game_type")
     private GameStatus type;
 
     @Column(length = 500)

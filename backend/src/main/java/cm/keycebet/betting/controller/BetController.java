@@ -1,4 +1,4 @@
-﻿package cm.keycebet.betting.controller;
+package cm.keycebet.betting.controller;
 
 import cm.keycebet.betting.dto.BetDto;
 import cm.keycebet.betting.dto.BetRequest;

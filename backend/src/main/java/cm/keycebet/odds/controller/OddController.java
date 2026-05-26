@@ -1,4 +1,4 @@
-﻿package cm.keycebet.odds.controller;
+package cm.keycebet.odds.controller;
 
 import cm.keycebet.common.response.ApiResponse;
 import cm.keycebet.odds.dto.OddDto;

@@ -1,4 +1,4 @@
-﻿package cm.keycebet.sports.entity;
+package cm.keycebet.sports.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

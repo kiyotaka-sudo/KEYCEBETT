@@ -1,4 +1,4 @@
-﻿package cm.keycebet.betting.service;
+package cm.keycebet.betting.service;
 
 import cm.keycebet.common.exception.BetNotAllowedException;
 import lombok.extern.slf4j.Slf4j;

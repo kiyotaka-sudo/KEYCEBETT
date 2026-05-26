@@ -1,4 +1,4 @@
-﻿package cm.keycebet.auth.security;
+package cm.keycebet.auth.security;
 
 import cm.keycebet.config.JwtConfig;
 import io.jsonwebtoken.*;

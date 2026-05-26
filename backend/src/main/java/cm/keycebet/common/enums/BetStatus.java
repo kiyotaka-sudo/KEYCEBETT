@@ -1,4 +1,4 @@
-﻿package cm.keycebet.common.enums;
+package cm.keycebet.common.enums;
 
 public enum BetStatus {
     PENDING,

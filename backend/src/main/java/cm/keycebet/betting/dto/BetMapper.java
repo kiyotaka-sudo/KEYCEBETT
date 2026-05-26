@@ -1,24 +1,46 @@
-﻿package cm.keycebet.betting.dto;
+package cm.keycebet.betting.dto;
 
 import cm.keycebet.betting.entity.Bet;
 import cm.keycebet.betting.entity.BetSelection;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
+import org.springframework.stereotype.Component;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface BetMapper {
+import java.util.stream.Collectors;
 
-    @Mapping(source = "user.id",   target = "userId")
-    @Mapping(source = "type",      target = "betType")
-    BetDto toDto(Bet bet);
+@Component
+public class BetMapper {
 
-    @Mapping(source = "odd.id",          target = "oddId")
-    @Mapping(source = "odd.marketType",  target = "marketType")
-    @Mapping(source = "odd.selection",   target = "selection")
-    @Mapping(source = "odd.event.homeTeam", target = "homeTeam")
-    @Mapping(source = "odd.event.awayTeam", target = "awayTeam")
-    @Mapping(expression = "java(betSelection.getOdd().getEvent().getHomeTeam() + \" vs \" + betSelection.getOdd().getEvent().getAwayTeam())",
-             target = "eventName")
-    BetSelectionDto toDto(BetSelection betSelection);
+    public BetDto toDto(Bet bet) {
+        if (bet == null) return null;
+        return BetDto.builder()
+                .id(bet.getId())
+                .userId(bet.getUser() != null ? bet.getUser().getId() : null)
+                .betType(bet.getType() != null ? bet.getType().name() : null)
+                .totalStake(bet.getTotalStake())
+                .totalOdds(bet.getTotalOdds())
+                .potentialWin(bet.getPotentialWin())
+                .status(bet.getStatus())
+                .placedAt(bet.getPlacedAt())
+                .settledAt(bet.getSettledAt())
+                .selections(bet.getSelections() != null
+                        ? bet.getSelections().stream().map(this::toDto).collect(Collectors.toList())
+                        : null)
+                .build();
+    }
+
+    public BetSelectionDto toDto(BetSelection betSelection) {
+        if (betSelection == null) return null;
+        var odd = betSelection.getOdd();
+        var event = odd != null ? odd.getEvent() : null;
+        return BetSelectionDto.builder()
+                .id(betSelection.getId())
+                .oddId(odd != null ? odd.getId() : null)
+                .marketType(odd != null ? odd.getMarketType() : null)
+                .selection(odd != null ? odd.getSelection() : null)
+                .oddValueAtBetTime(betSelection.getOddValueAtBetTime())
+                .status(betSelection.getStatus())
+                .homeTeam(event != null ? event.getHomeTeam() : null)
+                .awayTeam(event != null ? event.getAwayTeam() : null)
+                .eventName(event != null ? event.getHomeTeam() + " vs " + event.getAwayTeam() : null)
+                .build();
+    }
 }

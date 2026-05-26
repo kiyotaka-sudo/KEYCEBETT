@@ -1,4 +1,4 @@
-﻿package cm.keycebet.wallet.dto;
+package cm.keycebet.wallet.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;

@@ -1,13 +1,21 @@
-﻿package cm.keycebet.odds.dto;
+package cm.keycebet.odds.dto;
 
 import cm.keycebet.odds.entity.Odd;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingConstants;
+import org.springframework.stereotype.Component;
 
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
-public interface OddMapper {
+@Component
+public class OddMapper {
 
-    @Mapping(source = "event.id", target = "eventId")
-    OddDto toDto(Odd odd);
+    public OddDto toDto(Odd odd) {
+        if (odd == null) return null;
+        return OddDto.builder()
+                .id(odd.getId())
+                .eventId(odd.getEvent() != null ? odd.getEvent().getId() : null)
+                .marketType(odd.getMarketType())
+                .selection(odd.getSelection())
+                .value(odd.getValue())
+                .isActive(odd.isActive())
+                .updatedAt(odd.getUpdatedAt())
+                .build();
+    }
 }

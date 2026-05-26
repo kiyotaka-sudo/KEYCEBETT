@@ -1,4 +1,4 @@
-﻿package cm.keycebet.sports.service;
+package cm.keycebet.sports.service;
 
 import cm.keycebet.common.enums.EventStatus;
 import cm.keycebet.common.exception.ResourceNotFoundException;
